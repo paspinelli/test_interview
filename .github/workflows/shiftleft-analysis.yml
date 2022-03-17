@@ -1,50 +1,24 @@
-name: Python matrix CI
+- uses: ShiftLeftSecurity/scan-action@master
+  with:
+    type: "credscan,java,depscan"
 
-on: [push]
-
-jobs:
-  build:
-    runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        os: [ubuntu-20.04, macos-latest, windows-latest]
-        python-version: [3.8, 3.9]
-    steps:
-    - uses: actions/checkout@v1
-    - name: Set up Python
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements-dev.txt
-    - name: Lint with flake8
-      run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --statistics
-    - name: Test with pytest
-      run: |
-        pytest --cov=depscan test
-    - name: Self sast-scan
-      uses: AppThreat/sast-scan-action@master
-      with:
-        output: reports
-        type: python,credscan
-      env:
-        SCAN_ID: ${{ github.sha }}
-        WORKSPACE: https://github.com/${{ github.repository }}/blob/${{ github.sha }}
-    - name: Self dep-scan
-      uses: AppThreat/dep-scan-action@master
-      env:
-        VDB_HOME: ${{ github.workspace }}/db
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Upload scan reports
-      uses: actions/upload-artifact@v1.0.0
-      with:
-        name: sast-scan-reports
-        path: reports
+- name: Cache vdb
+  uses: actions/cache@v2
+  with:
+    path: |
+      ${{ github.workspace }}/vdb
+    key: ${{ runner.os }}
+- name: Scan
+  uses: ShiftLeftSecurity/scan-action@master
+  env:
+    VDB_HOME: ${{ github.workspace }}/vdb
+    WORKSPACE: https://github.com/${{ github.repository }}/blob/${{ github.sha }}
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    SCAN_AUTO_BUILD: true
+  with:
+    output: reports
+- name: Upload scan reports
+  uses: actions/upload-artifact@v1.0.0
+  with:
+    name: shiftleft-scan-reports
+    path: reports
