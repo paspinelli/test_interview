@@ -1,4 +1,4 @@
-name: docker tests
+name: Python matrix CI
 
 on: [push]
 
@@ -21,21 +21,30 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements-dev.txt
-        sudo npm install -g @appthreat/cdxgen
-    - name: Test container images
+    - name: Lint with flake8
       run: |
-        mkdir -p containertests
-        python depscan/cli.py --no-error --cache --src quay.io/appthreat/dep-scan -o containertests/depscan-scan.json -t docker
-        python depscan/cli.py --no-error --cache --src shiftleft/scan-slim -o containertests/depscan-scan.json -t docker,license
-        python depscan/cli.py --no-error --src redmine@sha256:a5c5f8a64a0d9a436a0a6941bc3fb156be0c89996add834fe33b66ebeed2439e -o containertests/depscan-redmine.json -t docker
-        python depscan/cli.py --no-error --src rocket.chat@sha256:379f7afa0e67497c363ac9a9b3e7e6a6d31deee228233307c987e4a0c68b28e6 -o containertests/depscan-rocket.json
-        docker save -o /tmp/scanslim.tar shiftleft/scan-slim:latest
-        python depscan/cli.py --no-error --src /tmp/scanslim.tar -o containertests/depscan-scanar.json
-        ls -ltr containertests
-      env:
-        PYTHONPATH: "."
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - uses: actions/upload-artifact@v1
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --statistics
+    - name: Test with pytest
+      run: |
+        pytest --cov=depscan test
+    - name: Self sast-scan
+      uses: AppThreat/sast-scan-action@master
       with:
-        name: containertests
-        path: containertests
+        output: reports
+        type: python,credscan
+      env:
+        SCAN_ID: ${{ github.sha }}
+        WORKSPACE: https://github.com/${{ github.repository }}/blob/${{ github.sha }}
+    - name: Self dep-scan
+      uses: AppThreat/dep-scan-action@master
+      env:
+        VDB_HOME: ${{ github.workspace }}/db
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload scan reports
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: sast-scan-reports
+        path: reports
