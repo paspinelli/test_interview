@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bom xmlns="http://cyclonedx.org/schema/bom/1.4" serialNumber="urn:uuid:f1b7abbd-2e24-441c-ae88-daf22e964403" version="1">
+  <metadata>
+    <timestamp>2022-03-17T19:14:20.119Z</timestamp>
+    <tools>
+      <tool>
+        <vendor>AppThreat</vendor>
+        <name>cdxgen</name>
+        <version>4.0.6</version>
+      </tool>
+    </tools>
+    <authors>
+      <author>
+        <name>Team AppThreat</name>
+        <email>cloud@appthreat.com</email>
+      </author>
+    </authors>
+  </metadata>
+  <components>
+    <component type="library" bom-ref="pkg:golang/github.com/dgrijalva/jwt-go@v3.2.0+incompatible">
+      <group>github.com/dgrijalva</group>
+      <name>jwt-go</name>
+      <version>v3.2.0+incompatible</version>
+      <description/>
+      <scope>required</scope>
+      <hashes>
+        <hash alg="SHA-256">137aeefb5d64f3148187e84c3e038b666b6bac26e1aac99a3c78cb2989c909a4</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/github.com/dgrijalva/jwt-go@v3.2.0+incompatible</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/github.com/go-kit/kit@v0.11.0">
+      <group>github.com/go-kit</group>
+      <name>kit</name>
+      <version>v0.11.0</version>
+      <description/>
+      <scope>optional</scope>
+      <hashes>
+        <hash alg="SHA-256">ef7ffa2316ae7e4bdbe4eb2f925b3c0bbf6fb90e3d05ad6b5045183527fe154c</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/github.com/go-kit/kit@v0.11.0</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/github.com/go-logfmt/logfmt@v0.5.0">
+      <group>github.com/go-logfmt</group>
+      <name>logfmt</name>
+      <version>v0.5.0</version>
+      <description/>
+      <scope>required</scope>
+      <hashes>
+        <hash alg="SHA-256">c026240802997ee985422869f02cc2bd0de96824df8b8d6fb731b529d23f3fb0</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/github.com/go-logfmt/logfmt@v0.5.0</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/golang.org/x/net@v0.0.0-20210405180319-a5a99cb37ef4">
+      <group>golang.org/x</group>
+      <name>net</name>
+      <version>v0.0.0-20210405180319-a5a99cb37ef4</version>
+      <description/>
+      <scope>optional</scope>
+      <hashes>
+        <hash alg="SHA-256">a79e30d1de39efa0b45c78fde9b4adea5727d4fb436162fa5ce6ed1c24423503</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/golang.org/x/net@v0.0.0-20210405180319-a5a99cb37ef4</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/google.golang.org/grpc@v1.38.0">
+      <group>google.golang.org</group>
+      <name>grpc</name>
+      <version>v1.38.0</version>
+      <description/>
+      <scope>optional</scope>
+      <hashes>
+        <hash alg="SHA-256">351113845a8a4757f7890ea806ebdce4b69d42e5d51a8f6b926e591ab41d25f3</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/google.golang.org/grpc@v1.38.0</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/google.golang.org/protobuf@v1.27.1">
+      <group>google.golang.org</group>
+      <name>protobuf</name>
+      <version>v1.27.1</version>
+      <description/>
+      <scope>optional</scope>
+      <hashes>
+        <hash alg="SHA-256">f6ad109932387913edcfa6e839098b630b7ea8282ad23b18c00427984d208af7</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/google.golang.org/protobuf@v1.27.1</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/github.com/golang/protobuf@v1.5.2">
+      <group>github.com/golang</group>
+      <name>protobuf</name>
+      <version>v1.5.2</version>
+      <description/>
+      <scope>optional</scope>
+      <hashes>
+        <hash alg="SHA-256">5d541ddd537033e26a0f7a06d947b68a9e1f38c524c177570dd8ae374bd1b266</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/github.com/golang/protobuf@v1.5.2</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/google.golang.org/genproto@v0.0.0-20210602131652-f16073e35f0c">
+      <group>google.golang.org</group>
+      <name>genproto</name>
+      <version>v0.0.0-20210602131652-f16073e35f0c</version>
+      <description/>
+      <scope>optional</scope>
+      <hashes>
+        <hash alg="SHA-256">50e0e80abc4709c0688ca2b05f5b5eac189151aa80b05a89885eb5e572f8debd</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/google.golang.org/genproto@v0.0.0-20210602131652-f16073e35f0c</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/golang.org/x/sys@v0.0.0-20210603081109-ebe580a85c40">
+      <group>golang.org/x</group>
+      <name>sys</name>
+      <version>v0.0.0-20210603081109-ebe580a85c40</version>
+      <description/>
+      <scope>optional</scope>
+      <hashes>
+        <hash alg="SHA-256">a0f921a75309ae1ee751ea4205c939fa60337cef49adb02934d81a4dd1832138</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/golang.org/x/sys@v0.0.0-20210603081109-ebe580a85c40</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/golang.org/x/text@v0.3.5">
+      <group>golang.org/x</group>
+      <name>text</name>
+      <version>v0.3.5</version>
+      <description/>
+      <scope>optional</scope>
+      <hashes>
+        <hash alg="SHA-256">e59a1cfd046d2955b34213ad04cbea1f30e917a8ab3bdcfdf310dc7a8b2e1a24</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/golang.org/x/text@v0.3.5</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/github.com/gorilla/mux@v1.8.0">
+      <group>github.com/gorilla</group>
+      <name>mux</name>
+      <version>v1.8.0</version>
+      <description/>
+      <scope>required</scope>
+      <hashes>
+        <hash alg="SHA-256">0d56e0db7b164a915108fd127e210dea39a3e7d5275bf9f8e811f9acb07bd52a</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/github.com/gorilla/mux@v1.8.0</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/github.com/google/uuid@v1.1.2">
+      <group>github.com/google</group>
+      <name>uuid</name>
+      <version>v1.1.2</version>
+      <description/>
+      <scope>required</scope>
+      <hashes>
+        <hash alg="SHA-256">4c8c8f65ee0c82abdf7980c115e74ca061a9130fcba8e79a393fa787153ec87a</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/github.com/google/uuid@v1.1.2</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/github.com/pborman/uuid@v1.2.1">
+      <group>github.com/pborman</group>
+      <name>uuid</name>
+      <version>v1.2.1</version>
+      <description/>
+      <scope>required</scope>
+      <hashes>
+        <hash alg="SHA-256">5ff34ed2eac299ac5ff555db7654fb0b6633923d882a298d9f893e82d3dd23f9</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/github.com/pborman/uuid@v1.2.1</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/github.com/form3tech/innsecure">
+      <group>github.com/form3tech</group>
+      <name>innsecure</name>
+      <version/>
+      <description/>
+      <scope>required</scope>
+      <licenses/>
+      <purl>pkg:golang/github.com/form3tech/innsecure</purl>
+    </component>
+    <component type="library" bom-ref="pkg:golang/github.com/lib/pq@v1.10.2">
+      <group>github.com/lib</group>
+      <name>pq</name>
+      <version>v1.10.2</version>
+      <description/>
+      <scope>required</scope>
+      <hashes>
+        <hash alg="SHA-256">02554de71e04e13e78e2d5b31fa84a7db7d0be6dc775b3b1ae68200cd00f63da</hash>
+      </hashes>
+      <licenses/>
+      <purl>pkg:golang/github.com/lib/pq@v1.10.2</purl>
+    </component>
+  </components>
+  <externalReferences>
+    <reference type="other">
+      <url>/app</url>
+      <comment>Base path</comment>
+    </reference>
+    <reference type="other">
+      <url>/app/go.mod, /app/vendor/github.com/go-logfmt/logfmt/go.mod, /app/vendor/github.com/google/uuid/go.mod, /app/vendor/github.com/gorilla/mux/go.mod, /app/vendor/github.com/lib/pq/go.mod, /app/vendor/github.com/pborman/uuid/go.mod, /app/vendor/google.golang.org/grpc/go.mod</url>
+      <comment>Package file</comment>
+    </reference>
+  </externalReferences>
+</bom>

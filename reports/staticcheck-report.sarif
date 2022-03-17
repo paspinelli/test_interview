@@ -1,0 +1,205 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Go Static Analysis",
+          "rules": [
+            {
+              "id": "SA1017",
+              "help": {
+                "text": "the channel used with signal.Notify should be buffered.",
+                "markdown": "the channel used with signal.Notify should be buffered."
+              },
+              "name": "",
+              "properties": {
+                "tags": [
+                  "Scan"
+                ],
+                "precision": "high"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "the channel used with signal.Notify should be buffered."
+              },
+              "helpUri": "https://staticcheck.io/docs/checks#SA1017",
+              "shortDescription": {
+                "text": "the channel used with signal.Notify should be buffered."
+              }
+            },
+            {
+              "id": "SA1029",
+              "help": {
+                "text": "should not use built-in type string as key for value; define your own type to avoid collisions.",
+                "markdown": "should not use built-in type string as key for value; define your own type to avoid collisions."
+              },
+              "name": "",
+              "properties": {
+                "tags": [
+                  "Scan"
+                ],
+                "precision": "high"
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "fullDescription": {
+                "text": "should not use built-in type string as key for value; define your own type to avoid collisions."
+              },
+              "helpUri": "https://staticcheck.io/docs/checks#SA1029",
+              "shortDescription": {
+                "text": "should not use built-in type string as key for value; define your own type to avoid collisions."
+              }
+            }
+          ],
+          "version": "1.0.0-scan",
+          "fullName": "Go Static Analysis"
+        }
+      },
+      "conversion": {
+        "tool": {
+          "driver": {
+            "name": "@ShiftLeft/sast-scan"
+          }
+        },
+        "invocation": {
+          "arguments": [
+            "-f",
+            "json",
+            "./..."
+          ],
+          "executionSuccessful": true,
+          "commandLine": "-f json ./...",
+          "endTimeUtc": "2022-03-17T19:14:11Z",
+          "workingDirectory": {
+            "uri": "file:///Users/pspinelli/Documents/vulneraiblity/test_interview"
+          }
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "endTimeUtc": "2022-03-17T19:14:11Z",
+          "workingDirectory": {
+            "uri": "file:///Users/pspinelli/Documents/vulneraiblity/test_interview"
+          }
+        }
+      ],
+      "properties": {
+        "metrics": {
+          "total": 2,
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 1
+        }
+      },
+      "results": [
+        {
+          "message": {
+            "markdown": "",
+            "text": "the channel used with signal.Notify should be buffered."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "\t\tsignal.Notify(c, syscall.SIGINT, syscall.SIGTERM)\n"
+                  },
+                  "startLine": 58
+                },
+                "artifactLocation": {
+                  "uri": "file:///Users/pspinelli/Documents/vulneraiblity/test_interview/cmd/innsecure/main.go"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\t\tc := make(chan os.Signal)\n\t\tsignal.Notify(c, syscall.SIGINT, syscall.SIGTERM)\n"
+                  },
+                  "endLine": 58,
+                  "startLine": 57
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "MEDIUM",
+            "issue_tags": {}
+          },
+          "baselineState": "new",
+          "partialFingerprints": {
+            "scanPrimaryLocationHash": "1e299ad900f9b837",
+            "scanFileHash": "a821f1f66195020b"
+          },
+          "ruleId": "SA1017",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "markdown": "",
+            "text": "should not use built-in type string as key for value; define your own type to avoid collisions."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "\t\t\tctx = context.WithValue(ctx, innsecure.UserContextKey, &u)\n"
+                  },
+                  "startLine": 35
+                },
+                "artifactLocation": {
+                  "uri": "file:///Users/pspinelli/Documents/vulneraiblity/test_interview/jwtauth/middleware.go"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\t\t\t}\n\t\t\tctx = context.WithValue(ctx, innsecure.UserContextKey, &u)\n"
+                  },
+                  "endLine": 35,
+                  "startLine": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "MEDIUM",
+            "issue_severity": "LOW",
+            "issue_tags": {}
+          },
+          "baselineState": "new",
+          "partialFingerprints": {
+            "scanPrimaryLocationHash": "a1df48394d4385b2",
+            "scanFileHash": "05280f04bb70f064"
+          },
+          "ruleId": "SA1029",
+          "ruleIndex": 1
+        }
+      ],
+      "automationDetails": {
+        "description": {
+          "text": "Static Analysis Security Test results using @ShiftLeft/sast-scan"
+        },
+        "guid": "13ae7b2b-db5e-4b3f-8d4c-a09ecd4768c8"
+      },
+      "versionControlProvenance": [
+        {
+          "branch": "main",
+          "repositoryUri": "https://github.com/paspinelli/test_interview",
+          "revisionId": "c3affca72ba542505876ab9511388312408512c8"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "inlineExternalProperties": [
+    {
+      "guid": "13ae7b2b-db5e-4b3f-8d4c-a09ecd4768c8",
+      "runGuid": "467e8315-80b1-480b-a89b-f416ed6a8cd4"
+    }
+  ]
+}

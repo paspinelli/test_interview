@@ -1,0 +1,4 @@
+/app/docker-compose.yml:1:1: [warning] missing document start "---" (document-start)
+/app/docker-compose.yml:6:9: [error] wrong indentation: expected 6 but found 8 (indentation)
+/app/docker-compose.yml:16:9: [error] wrong indentation: expected 6 but found 8 (indentation)
+/app/docker-compose.yml:23:1: [error] too many blank lines (1 > 0) (empty-lines)
