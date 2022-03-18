@@ -1,21 +1,15 @@
-
-- name: Security and Licence Scan
-  uses: ShiftLeftSecurity/scan-action@v1.3.0
-  with:
-    path: |
-      ${{ github.workspace }}/vdb
-    key: ${{ runner.os }}
-- name: Scan
+- name: Perform Scan
   uses: ShiftLeftSecurity/scan-action@master
+  with:
+    type: "credscan,python"
   env:
-    VDB_HOME: ${{ github.workspace }}/vdb
-    WORKSPACE: https://github.com/${{https://github.com/paspinelli/test_interview.git}}/blob/${{ github.sha }}
+    WORKSPACE: https://github.com/${{ https://github.com/paspinelli/test_interview.git }}/blob/${{ github.sha }}
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    SCAN_AUTO_BUILD: true
+
+- uses: actions/upload-artifact@v1
   with:
-    output: reports
-- name: Upload scan reports
-  uses: actions/upload-artifact@v1.0.0
-  with:
-    name: shiftleft-scan-reports
+    name: reports
     path: reports
+
+
+
