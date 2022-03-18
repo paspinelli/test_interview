@@ -34,7 +34,7 @@
           ],
           "executionSuccessful": true,
           "commandLine": "/opt/pmd-bin/bin/run.sh pmd --no-cache --fail-on-violation false -language plsql -d /app -r /app/reports/source-sql-report.csv -f csv -R /usr/local/src/lib/../rules-pmd.xml",
-          "endTimeUtc": "2022-03-17T19:14:00Z",
+          "endTimeUtc": "2022-03-18T10:15:36Z",
           "workingDirectory": {
             "uri": "file:///Users/pspinelli/Documents/vulneraiblity/test_interview"
           }
@@ -43,7 +43,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2022-03-17T19:14:00Z",
+          "endTimeUtc": "2022-03-18T10:15:36Z",
           "workingDirectory": {
             "uri": "file:///Users/pspinelli/Documents/vulneraiblity/test_interview"
           }
@@ -63,13 +63,13 @@
         "description": {
           "text": "Static Analysis Security Test results using @ShiftLeft/sast-scan"
         },
-        "guid": "4928aebe-cd1f-4d9a-8a88-32977d673d23"
+        "guid": "a02a40b8-b26c-42fa-aef0-aea9fd4e0e06"
       },
       "versionControlProvenance": [
         {
           "branch": "main",
           "repositoryUri": "https://github.com/paspinelli/test_interview",
-          "revisionId": "c3affca72ba542505876ab9511388312408512c8"
+          "revisionId": "5076f6f24d77d5b75e05a04416936b37cdb47c9e"
         }
       ]
     }
@@ -78,8 +78,8 @@
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
   "inlineExternalProperties": [
     {
-      "guid": "4928aebe-cd1f-4d9a-8a88-32977d673d23",
-      "runGuid": "467e8315-80b1-480b-a89b-f416ed6a8cd4"
+      "guid": "a02a40b8-b26c-42fa-aef0-aea9fd4e0e06",
+      "runGuid": "3d72c3dc-268f-4b09-be32-787824cfa570"
     }
   ]
 }
