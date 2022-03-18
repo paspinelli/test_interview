@@ -1,7 +1,6 @@
 
-
-- name: Cache vdb
-    uses: actions/cache@v2
+- name: Security and Licence Scan
+  uses: ShiftLeftSecurity/scan-action@v1.3.0
   with:
     path: |
       ${{ github.workspace }}/vdb
